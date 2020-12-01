@@ -1,11 +1,37 @@
+<!--
+ * @Description: 主要是配置rem添加mate标签
+ * @version: 
+ * @Author: Fiona
+ * @Date: 2020-10-22 09:43:14
+ * @LastEditors: Fiona
+ * @LastEditTime: 2020-10-22 17:55:10
+-->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script>
+        // rem适配相关 start
+        var designWidth = 750; // 设计图的宽度
+        var baseSize = designWidth / 10; // 基准大小
+        var clientWidth = document.documentElement.clientWidth
+        if(clientWidth > 414) {
+            clientWidth = 414
+        }
+        function setRem() {
+            var scale = clientWidth / designWidth;
+            document.documentElement.style.fontSize = baseSize * Math.min(scale, 2) + 'px';
+        }
+        setRem();
+        window.onresize = function() {
+            setRem();
+        }
+    </script> 
   </head>
   <body>
     <noscript>

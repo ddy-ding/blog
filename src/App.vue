@@ -1,28 +1,29 @@
+<!--
+ * @Description: app页面
+ * @version: 
+ * @Author: Fiona
+ * @Date: 2020-10-22 09:43:14
+ * @LastEditors: Fiona
+ * @LastEditTime: 2020-10-22 17:12:55
+-->
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <HeaderPart></HeaderPart>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderPart from './components/Header/Header'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    HeaderPart
   }
 }
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
