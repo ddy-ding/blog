@@ -52,7 +52,7 @@ module.exports = {
       },
       css: {
         modules: {
-            localIdentName: '[name]-[hash]', // 设定 CSS Modules 命名规则
+          localIdentName: '[local]_[hash:base64:8]' // 设定 CSS Modules 命名规则 命名规则
         },
         localsConvention: 'camelCaseOnly'
       },
@@ -60,9 +60,10 @@ module.exports = {
         plugins: [
             autoprefixer(),
             pxtorem({
-                rootValue: 75,
+                rootValue: 100,
                 propList: ['*'],
-                "selectorBlackList":["van-"]   //排除vant框架相关组件
+                remUnit: 75 ,
+                selectorBlackList:["van-"]   //排除vant框架相关组件
             })
             ]
       }

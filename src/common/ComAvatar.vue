@@ -12,13 +12,14 @@
  
 <style lang='postcss' module>
     .avatar {
-         width: .6rem;
-         height: .6rem;
-         border-radius: 50%;
-         line-height: .6rem;
-         text-align: center;
-         color: #fff;
-         background-color: #00a8e5;
-         cursor: pointer;
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        line-height: 80px;
+        color: #fff;
+        background-color: #00a8e5;
+        cursor: pointer;
+        font-size: 12px;
+        text-align: center;
     }
 </style>

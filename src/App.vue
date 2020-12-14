@@ -8,22 +8,20 @@
 -->
 <template>
   <div id="app">
-    <HeaderPart></HeaderPart>
+    <HeaderPart/>
   </div>
 </template>
 
 <script>
-import HeaderPart from './components/Header/Header'
+import HeaderPart from '@/components/Header/Header'
 
 export default {
   name: 'App',
   components: {
-    HeaderPart
+     HeaderPart
   }
 }
 </script>
 
 <style>
-#app {
-}
 </style>
