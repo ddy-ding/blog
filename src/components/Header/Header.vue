@@ -4,15 +4,15 @@
  * @Author: Fiona
  * @Date: 2020-10-22 15:50:08
  * @LastEditors: Fiona
- * @LastEditTime: 2020-10-22 18:00:47
+ * @LastEditTime: 2020-12-14 14:14:24
 -->
 <template>
   <header :class="$style.header">
-    <div :class="$style.logoBox">
+    <div :class="$style.logoBox" @click="$router.push('/')">
       <SVGLogo height="32" weight="32"></SVGLogo>
       <h1 :class="$style.title">云阁</h1>
     </div>
-    <ComAvatar @click="loginStatus">云</ComAvatar>
+    <ComAvatar @click.native="loginStatus">云</ComAvatar>
   </header>
 </template>
 
@@ -34,6 +34,7 @@ export default {
 
   methods: {
     loginStatus() {
+     console.log('我走进去了么')
       this.$router.push('/login')
     }
   }
