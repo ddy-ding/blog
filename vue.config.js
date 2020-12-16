@@ -4,7 +4,7 @@
  * @Author: Fiona
  * @Date: 2020-10-12 18:31:17
  * @LastEditors: Fiona
- * @LastEditTime: 2020-12-15 17:16:44
+ * @LastEditTime: 2020-12-16 16:19:11
  */
 const autoprefixer = require('autoprefixer');
 const pxtorem = require('postcss-pxtorem');
@@ -68,7 +68,7 @@ module.exports = {
       }
     }
   },
-  dev: {
+  devServer: {
     overlay: { // 让浏览器 overlay 同时显示警告和错误
         warnings: true,
         errors: true
@@ -80,22 +80,13 @@ module.exports = {
       hotOnly: true, // 热更新
       // proxy: 'http://localhost:8080'   // 配置跨域处理,只有一个代理
       proxy: { //配置多个代理
-          "/testIp": {
-              target: "http://197.0.0.1:8088",
+        '/api': {
+              target: "http://hotplato.top:7777",
               changeOrigin: true, // 起一个虚拟服务器跨域
               ws: true,//websocket支持
               secure: false, // 是否验证SSl证书(忽略https安全提示))
               pathRewrite: {
-                  "^/testIp": "/"
-              }
-          },
-          "/elseIp": {
-              target: "http://197.0.0.2:8088",
-              changeOrigin: true,
-              //ws: true,//websocket支持
-              secure: false,
-              pathRewrite: {
-                  "^/elseIp": "/"
+                '^/api': '',
               }
           },
       }
