@@ -4,8 +4,19 @@
  * @Author: Fiona
  * @Date: 2020-12-14 14:12:07
  * @LastEditors: Fiona
- * @LastEditTime: 2020-12-14 14:12:34
+ * @LastEditTime: 2020-12-18 11:47:04
 -->
 <template>
-    <div>我是首页</div>
+    <div>
+        <HomeBanner/>
+    </div>
 </template>
+<script>
+    import HomeBanner from './HomeBanner'
+    export default {
+        components: {
+            HomeBanner
+        }
+        
+    }
+</script>
