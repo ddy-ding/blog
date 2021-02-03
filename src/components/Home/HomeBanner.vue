@@ -4,7 +4,7 @@
  * @Author: Fiona
  * @Date: 2020-12-18 10:44:20
  * @LastEditors: Fiona
- * @LastEditTime: 2021-01-08 18:29:23
+ * @LastEditTime: 2021-02-03 18:41:21
    :style="{width:100/len+'%',backgroundImage: `url(${item.src})`}"
 -->
 <template>
@@ -29,10 +29,11 @@
         </ul>
         <!-- onselectstart实现文字双击不可选中 -->
         <!-- 原点 -->
-        <ul :class="$style.dotBox">
+        <ul :class="$style.dotBox" @click="activeDotFn">
             <li 
                 v-for="i in (len - 2)" 
                 :key="i"
+                :data-dot-index="i"
                 :class="[{[$style['dot-active']]:(activeIndex === i) || (activeIndex === (len-1)&& i===1) || (activeIndex === 0 && i === 5 )},$style.dot]"
                 ></li>
         </ul>
@@ -95,18 +96,30 @@
       },
       mounted() {
           this.startInterval()
-          console.log('img',this.imgsComputed.length)
+        //   console.log('img',this.imgsComputed.length)
+         
       },
+    beforeDestory() {
+              clearInterval(this.timer)
+          },
       methods: {
+          activeDotFn(e){
+            //   console.log('e555555',e.target.tagName.toLowerCase() === 'li')
+              if(e.target.tagName.toLowerCase() === 'li') {
+                  let index = parseInt(e.target.getAttribute('data-dot-index'))
+                  this.activeIndex = index
+              }
+          },
           switcnFn(e) {
              // 过度过程中不可以切换 
              if(this.isTransitioning) {
-                 // ===4===对activeIndex进行操作
-                 e.target.className.indexOf('next') != -1 ? this.activeIndex++ : this.activeIndex--
+               return
              }
+             // ===4===对activeIndex进行操作
+            e.target.className.indexOf('next') != -1 ? this.activeIndex++ : this.activeIndex--
           },
           hoverFn(e) { //鼠标移入暂停轮播，移出恢复轮播
-            console.log('e', e);
+            // console.log('e', e);
             if(e.type === 'mouseenter') {
                 if(this.timer) {
                     clearInterval(this.timer)
@@ -133,8 +146,8 @@
       },
       watch: {
           activeIndex(newActiveIndex, oldActiveIndex) {
-              console.log('newActiveIndex',newActiveIndex)
-              console.log('oldActiveIndex',oldActiveIndex)
+            //   console.log('newActiveIndex',newActiveIndex)
+            //   console.log('oldActiveIndex',oldActiveIndex)
               // ===5===监听activeIndex的变化 当activeIndex到达临界值的时候进行复位
               // if(是轮播图从最后一张切换到第一张 || 是轮播图从第一张切换到最后一张) 是属于瞬间归位，直接return，不执行以后所有函数
               if((newActiveIndex === 1 && oldActiveIndex ===(this.len - 1)) || (oldActiveIndex === 0 && newActiveIndex === (this.len - 2))) {
@@ -148,8 +161,10 @@
                 // 以下两种情况是瞬间归位时activeIndex变化 
                 if (this.activeIndex === 0) {
                     this.activeIndex = this.len - 2
+                }else if(this.activeIndex === (this.len - 1)) {
+                    this.activeIndex = 1     
                 }
-                
+                this.isTransitioning = false
              },this.transitionInterval)
 
           }
