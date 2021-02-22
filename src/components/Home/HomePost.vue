@@ -4,13 +4,13 @@
  * @Author: Fiona
  * @Date: 2021-02-03 15:21:45
  * @LastEditors: Fiona
- * @LastEditTime: 2021-02-03 18:39:47
+ * @LastEditTime: 2021-02-04 13:59:50
 -->
 <template>
     <section :class="$style['article']">
         <header :class="$style['header']">
             <h4>专题推荐</h4>
-            <router-link :class="$style['header-link']" to="mmm">更多专题</router-link>
+            <router-link :class="$style['headerLink']" to="mmm">更多专题</router-link>
         </header>
         <ul :class="$style.main">
             <li 
@@ -44,7 +44,8 @@
 <style module lang="postcss" >
     .article {
       box-sizing: border-box;
-      padding: 20px 20px 80px 20px;
+      /* padding: 20px 20px 80px 20px; */
+      padding: 20px;
     }
 
     .header {
@@ -58,8 +59,12 @@
       font-size: 24px;
       
     }
-    .header-link {
+    .headerLink {
         font-size: 24px;
+    }
+    .headerLink::after {
+        content: '>';
+        margin-left: 4px;
     }
     .main {
         height: 860px;

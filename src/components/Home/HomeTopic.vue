@@ -4,13 +4,13 @@
  * @Author: Fiona
  * @Date: 2021-02-02 18:19:26
  * @LastEditors: Fiona
- * @LastEditTime: 2021-02-03 15:24:22
+ * @LastEditTime: 2021-02-04 17:45:04
 -->
 <template>
     <section :class="$style['topic']">
         <header :class="$style['header']">
             <h4>专题推荐</h4>
-            <router-link :class="$style['header-link']" to="mmm">更多专题</router-link>
+            <router-link :class="$style['headerLink']" to="mmm">更多专题</router-link>
         </header>
         <ul :class="$style['main']">
             <li 
@@ -59,10 +59,10 @@
 
         font-size: 24px;
     }
-    .header-link {
+    .headerLink {
         font-size: 24px;
     }
-    .header-link ::after {
+    .headerLink::after {
         content: '>';
         margin-left: 4px;
     }

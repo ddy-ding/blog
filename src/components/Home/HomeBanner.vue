@@ -4,7 +4,7 @@
  * @Author: Fiona
  * @Date: 2020-12-18 10:44:20
  * @LastEditors: Fiona
- * @LastEditTime: 2021-02-03 18:41:21
+ * @LastEditTime: 2021-02-04 17:50:25
    :style="{width:100/len+'%',backgroundImage: `url(${item.src})`}"
 -->
 <template>
@@ -216,6 +216,7 @@
         display: inline-block;
         width: 100%;
         height: 100%;
+        object-fit: cover;
     }
      
 </style>

@@ -4,7 +4,7 @@
  * @Author: Fiona
  * @Date: 2020-10-22 09:43:14
  * @LastEditors: Fiona
- * @LastEditTime: 2020-12-14 17:42:39
+ * @LastEditTime: 2021-02-04 17:46:51
 -->
 <template>
   <div id="app"  :class="$style.wrap">
@@ -56,7 +56,7 @@ export default {
   
   body {
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     background-image: linear-gradient(90deg, #f3f3f3 2px, transparent 0), linear-gradient(#f3f3f3 2px, transparent 0), linear-gradient(90deg, #f3f3f3 1px, transparent 0), linear-gradient(#f3f3f3 1px, transparent 0);
     background-size: 100px 100px, 100px 100px, 40px 40px, 40px 40px;
     background-color: #fafafa;
@@ -158,7 +158,7 @@ export default {
     max-width: 1200px;
     height: 100%;
     margin: 0 auto;
-    overflow: hidden;
+    /* overflow: hidden; */
     background: #fafafa;
   }
   

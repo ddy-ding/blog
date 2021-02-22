@@ -4,7 +4,7 @@
  * @Author: Fiona
  * @Date: 2020-10-12 18:31:17
  * @LastEditors: Fiona
- * @LastEditTime: 2020-12-16 16:19:11
+ * @LastEditTime: 2021-02-04 17:39:18
  */
 const autoprefixer = require('autoprefixer');
 const pxtorem = require('postcss-pxtorem');
@@ -73,7 +73,7 @@ module.exports = {
         warnings: true,
         errors: true
       },
-      host: "localhost",
+      host: "0.0.0.0",
       port: 8088, // 端口号
       https: false, // https:{type:Boolean}
       open: false, //配置后自动启动浏览器
