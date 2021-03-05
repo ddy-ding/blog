@@ -10,7 +10,15 @@ const autoprefixer = require('autoprefixer');
 const pxtorem = require('postcss-pxtorem');
 const IS_PROD = ["production", "prod"].includes(process.env.NODE_ENV);
 const path = require("path");
-// const resolve = dir => path.join(__dirname, dir);
+// 配置ssr相关 vue-cli3相关配置
+const ServerPlugin = require('vue-server-renderer/server-plugin'); //生成服务端清单
+const ClientPlugin = require('vue-server-renderer/client-plugin');//生成客户端清单
+const nodeExternals = require('webpack-node-externals');//忽略node_modules文件夹中的所有模块
+// const { fstat } = require('fs');
+const VUE_NODE = process.env.VUE_NODE === 'node';
+const entry = VUE_NODE ? 'entry-server' : 'entry-client';//根据环境变量来指向入口
+// 配置ssr相关文档结束
+
 function resolve(dir) {
     return path.join(__dirname, dir);
   }
@@ -37,7 +45,7 @@ module.exports = {
   },
  // css配置
  css: {
-    extract: IS_PROD,
+    extract: false, //关闭提取css，不关闭node渲染会报错
     sourceMap: false,
     requireModuleExtension: false, // 是否仅对文件名包含module的css相关文件使用 CSS Modules
     loaderOptions: {
@@ -90,5 +98,23 @@ module.exports = {
               }
           },
       }
-  }
+  },
+ // ssr具体配置  https://segmentfault.com/a/1190000018043697 
+  configureWebpack: () => ({
+      entry: `./src/${entry}`,
+      output: {
+          filename: 'js/[name].js',
+          chunkFilename: 'js/[name].js',
+          libraryTarget: VUE_NODE ? 'commonjs2' : undefined
+      },
+      target: VUE_NODE  ? 'node' : 'web',
+      externals: VUE_NODE ? nodeExternals({
+          //设置白名单
+          whitelist: /\.css$/
+      }) : undefined,
+      plugins: [
+          //根据环境来生成不同的清单。
+          VUE_NODE ? new ServerPlugin() : new ClientPlugin()
+      ]
+  }),
 }
