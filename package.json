@@ -5,7 +5,7 @@
   "author": "fionading<1208594610@qq.com>",
   "description": "A vue project",
   "scripts": {
-    "serve:client": " vue-cli-service serve",
+    "serve": " vue-cli-service serve",
     "build": "npm run build:server -- --silent && npm run build:client -- --no-clean --silent",
     "build:client": "vue-cli-service build",
     "build:server": "cross-env VUE_NODE=node vue-cli-service build",
@@ -15,6 +15,7 @@
     "amfe-flexible": "^2.2.1",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "cross-env": "^7.0.3",
     "express": "^4.17.1",
     "path": "^0.12.7",
     "precss": "^4.0.0",
@@ -40,6 +41,7 @@
     "svg-sprite-loader": "^5.0.0",
     "vue-lazyload": "^1.3.3",
     "vue-template-compiler": "^2.6.11",
+    "webpack-dev-server": "^3.0.0",
     "webpack-node-externals": "^2.5.2"
   },
   "eslintConfig": {

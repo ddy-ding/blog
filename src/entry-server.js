@@ -7,7 +7,7 @@
  * 这个页面实现服务器端路由逻辑
  */
 
-import { createApp } from './app'
+import {createApp}  from './main'
 
 export default context => {
     // 因为有可能会是一个异步路由钩子函数或者组件，所以我们将返回一个promise
@@ -47,7 +47,6 @@ export default context => {
         }, reject)
     })
 }
-
 /**[服务端数据预处理--流程]
  * 简单介绍（来源文档）1.通过router.getMatchedComponents()进行路由匹配组件
  * 2.如果组件暴露出 asyncData，我们就调用这个方法

@@ -109,9 +109,8 @@ module.exports = {
       },
       target: VUE_NODE  ? 'node' : 'web',
       externals: VUE_NODE ? nodeExternals({
-          //设置白名单
-          whitelist: /\.css$/
-      }) : undefined,
+        allowlist: /\.css$/
+    }) : undefined,
       plugins: [
           //根据环境来生成不同的清单。
           VUE_NODE ? new ServerPlugin() : new ClientPlugin()

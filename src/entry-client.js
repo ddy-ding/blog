@@ -6,7 +6,7 @@
    现在我们只需要更新客户端入口 (client entry)：
  */
 import Vue from 'vue'
-import { createApp } from './main'
+import {createApp} from './main'
 
  // 客户端特定引导逻辑……
  

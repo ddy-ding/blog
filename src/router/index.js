@@ -15,24 +15,25 @@ const originalPush  = Router.prototype.push
 Router.prototype.push = function push(location){
     return originalPush.call(this,location).catch(err => err)
 }
-
-const router = new Router({
+export function createRouter() {
+  return new Router({
+    mode:'history',
     routes:[
-        {
-            path:'/',
-            component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Home/Home'),
-            name:'home'
-        },
-        {
-            path:'/login',
-            component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Login/Login'),
-            name:'login'
-        },
-        {
-            path:'/register',
-            component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Login/Register'),
-            name:'register'
-        }
+      {
+          path:'/',
+          component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Home/Home'),
+          name:'home'
+      },
+      {
+          path:'/login',
+          component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Login/Login'),
+          name:'login'
+      },
+      {
+          path:'/register',
+          component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Login/Register'),
+          name:'register'
+      }
     ]
-})
-export default router
+  })
+}

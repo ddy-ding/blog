@@ -9,25 +9,25 @@
  import Vue from 'vue'
  import Vuex from 'vuex'
  import alert from './page/alert'
- import auth from './page/user'
- import post from './page/post'
- import category from './page/category'
- import like from './page/like'
- import size from './page/size'
- import comment from './page/comment'
+//  import auth from './page/user'
+//  import post from './page/post'
+//  import category from './page/category'
+//  import like from './page/like'
+//  import size from './page/size'
+//  import comment from './page/comment'
 
  Vue.use(Vuex)
 
- export default function createStore() {
+ export function createStore() {
      return new Vuex.Store({
          modules:{
             alert,
-            auth,
-            post,
-            category,
-            like,
-            size,
-            comment
+            // auth,
+            // post,
+            // category,
+            // like,
+            // size,
+            // comment
          }
      })
  }
