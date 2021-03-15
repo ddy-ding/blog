@@ -8,7 +8,7 @@
  */
 import Vue from 'vue'
 import App from './App.vue'
-import 'amfe-flexible' // lib-flexible 用于设置 rem 基准值
+// import 'amfe-flexible' // lib-flexible 用于设置 rem 基准值
 import {createRouter} from './router'
 import  {createStore}  from './store'
 import VueLazyLoad from 'vue-lazyload'

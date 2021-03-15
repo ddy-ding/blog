@@ -21,19 +21,9 @@ export function createRouter() {
     routes:[
       {
           path:'/',
-          component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Home/Home'),
+          component: () => import('../page/home/index'),
           name:'home'
       },
-      {
-          path:'/login',
-          component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Login/Login'),
-          name:'login'
-      },
-      {
-          path:'/register',
-          component: () => import(/* webpackChunkName: "group-foo" */ '@/components/Login/Register'),
-          name:'register'
-      }
     ]
   })
 }

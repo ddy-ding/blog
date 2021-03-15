@@ -47,8 +47,3 @@ export default context => {
         }, reject)
     })
 }
-/**[服务端数据预处理--流程]
- * 简单介绍（来源文档）1.通过router.getMatchedComponents()进行路由匹配组件
- * 2.如果组件暴露出 asyncData，我们就调用这个方法
- * 3.然后我们需要将解析完成的状态，附加到渲染上下文(render context)中。
- */

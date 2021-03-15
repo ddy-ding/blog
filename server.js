@@ -13,20 +13,22 @@ const { createBundleRenderer} = require('vue-server-renderer')
 const { minify } = require('html-minifier')
 const app = express()
 const resolve = file => path.resolve(__dirname,file)// 模板地址
+
 // 服务端渲染清单
 // 读取模板
 const renderer = createBundleRenderer(require('./dist/vue-ssr-server-bundle.json'),{
     runInNewContext:false,
-    template:fs.readFileSync(resolve('./index.template.html'),'utf-8'), 
+    template:fs.readFileSync(resolve('./public/index.nodeTempalte.html'),'utf-8'), 
     clientManifest:require('./dist/vue-ssr-client-manifest.json'), // 客户端渲染清单
     basedir:resolve('./dist')
 })
 app.use(express.static(path.join(__dirname,'dist')))
-app.use('/manifest.json',express.static(path.join(__dirname,'manifest.json')))
-app.use('/logo',express.static(path.join(__dirname,'logo')))
+app.use('/js', express.static(resolve(__dirname, './dist/js')))
+app.use('/img', express.static(resolve(__dirname, './dist/img')))
+
 //  路由请求
 app.get('*',(req,res) => {
-    res.setHeeader('Content-Type', 'text/html')
+    res.setHeader('Content-Type', 'text/html')
      //传入路由 src/entry/server.js会接收到  使用vueRouter实例进行push
     const handleError = err => {
         if(err.url) {
@@ -40,7 +42,7 @@ app.get('*',(req,res) => {
         }
     }
     const context = {
-        title:'前端小站',
+        title:'ccc',
         url: req.url
     }
     renderer.renderToString(context,(err,html) => {
