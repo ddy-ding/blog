@@ -35,4 +35,7 @@
 import vue from './index';
 export default vue
 </script>
+<style lang="scss" scoped>
+@import './index';
+</style>
  
