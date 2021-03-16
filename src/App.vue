@@ -1,37 +1,50 @@
 <template>
-    <div id="app">
-        <div>00000</div>
-        <Home></Home>
+    <div id="app" class="wrap" :style="{height:wrapHeight + 'px'}">
+      <TheHeader class="header">
+        555
+      </TheHeader>
     </div>
 </template>
 
 <script>
- import Home from './page/home/index.vue'
+ import { mapActions } from 'vuex'
+ import { types } from '@/store/types'
+ import TheHeader from '@/components/TheHeader/TheHeader.vue'
+
 export default {
     name: 'app',
+    computed:{
+      wrapHeight() {
+        return this.$store.state.size.height
+      }
+    },
+    mounted() {
+      this.initData()
+    },
+    methods: {
+      ...mapActions({
+        setWindowHeight:types.SET_HEIGHT,
+      }),
+      initData() {
+        const windowHeight = document.documentElement.clientHeight
+        this.setWindowHeight(windowHeight)
+      }
+    },
     components:{
-      Home
+      TheHeader
     }
 }
 </script>
 
-<style>
-    html,body,#app,#app>*{
-        width: 100%;
-        height: 100%;
+<style lang="scss" scoped>
+  .wrap {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+    .header {
+      height: 40px;
     }
-    body{
-        font-family: 'Avenir', Helvetica, Arial, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        text-align: center;
-        color: #2c3e50;
-        font-size: 16px;
-        margin: 0;
-        overflow-x: hidden;
-    }
-
-    img{
-        width: 200px;
-    }
-</style>
+  }  
+</style>>
+ 

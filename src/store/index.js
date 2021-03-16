@@ -13,7 +13,7 @@
 //  import post from './page/post'
 //  import category from './page/category'
 //  import like from './page/like'
-//  import size from './page/size'
+ import size from './page/size'
 //  import comment from './page/comment'
 
  Vue.use(Vuex)
@@ -26,7 +26,7 @@
             // post,
             // category,
             // like,
-            // size,
+            size,
             // comment
          }
      })

@@ -1,0 +1,20 @@
+.heade {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 10px;
+  .logo-box {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    .title {
+      display: inline-block;
+      margin-left: 4px;
+      font-size: 16px;
+      background-image: linear-gradient(160deg, #aed1df, cadetblue);
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  }
+}

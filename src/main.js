@@ -8,12 +8,19 @@
  */
 import Vue from 'vue'
 import App from './App.vue'
-// import 'amfe-flexible' // lib-flexible 用于设置 rem 基准值
 import {createRouter} from './router'
 import  {createStore}  from './store'
 import VueLazyLoad from 'vue-lazyload'
 import { sync } from 'vuex-router-sync'
-// 添加懒加载图片并设置webp图片格式（这种格式目前只能在android下才能使用）
+import Rem from './utils/RemSet'
+import './assets/css/remove.scss' //清除默认样式
+import './assets/css/global.scss' //公共样式
+Vue.prototype.Rem = Rem
+/**
+ * @param {string} loading
+ * @returns webp图片格式
+ * @description 添加懒加载图片并设置webp图片格式（这种格式目前只能在android下才能使用）
+ */
 Vue.use(VueLazyLoad,{
     loading:require('./assets/imgs/loading.gif'),
     listenEvents: ['scroll'],
