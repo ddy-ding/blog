@@ -1,8 +1,11 @@
 <template>
     <div id="app" class="wrap" :style="{height:wrapHeight + 'px'}">
-      <TheHeader class="header">
-        555
-      </TheHeader>
+      <TheHeader class="header"/>
+      <main>
+        <transition>
+          <router-view></router-view>
+        </transition>
+      </main>
     </div>
 </template>
 

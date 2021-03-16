@@ -1,0 +1,11 @@
+.wrap {
+  position: relative;
+  height: 140px;
+  overflow: hidden;
+}
+.imgs-container {
+  height: 100%;
+  .img-item {
+    height: 100%;
+  }
+}

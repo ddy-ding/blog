@@ -21,8 +21,9 @@ export function createRouter() {
     routes:[
       {
           path:'/',
-          component: () => import('../page/home/index'),
-          name:'home'
+          component: () => import('@/page/Home/Home.vue'),
+          name:'home',
+          meta: { index: 0 }
       },
     ]
   })
