@@ -1,0 +1,22 @@
+.topic {
+  padding: 10px;
+  box-sizing: border-box;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 4px;
+    line-height: 20px;
+    .title-more {
+      font-size: 14px;
+    }
+  }
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 176px;
+    .main-list {
+      box-sizing: border-box;
+      width: calc(50% - 20px);
+    }
+  }
+}

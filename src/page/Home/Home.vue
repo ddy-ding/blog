@@ -2,6 +2,7 @@
   <div>
     <HomeBanner/>
     <HomeMenu/>
+    <HomeTopic/>
 
   </div>
 </template>

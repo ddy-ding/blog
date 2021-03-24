@@ -1,8 +1,8 @@
 <template>
   <ul class="menu">
-    <li v-for="(item,index) in menuData" :key="index">
-      <div>{{ item.name}}</div>
-      <div>{{ item.category}}</div>
+    <li class="menuList" v-for="(item,index) in menuData" :key="index">
+      <div class="name">{{ item.name}}</div>
+      <div class="category">{{ item.category}}</div>
     </li>
   </ul>
 </template>
@@ -10,6 +10,6 @@
   import homeMenu from './HomeMenu'
   export default homeMenu
 </script>
-<style lang="sass" scoped src="./HomeMenu.scss">
+<style lang="scss" scoped src="./HomeMenu.scss">
 
 </style>

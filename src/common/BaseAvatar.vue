@@ -12,5 +12,6 @@
     text-align: center;
     background-color:cadetblue;
     cursor: pointer;
+    color: #fff;
   }
 </style>
