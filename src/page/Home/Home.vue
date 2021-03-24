@@ -1,6 +1,7 @@
 <template>
   <div>
     <HomeBanner/>
+    <HomeMenu/>
 
   </div>
 </template>

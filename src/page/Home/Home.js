@@ -1,4 +1,5 @@
 import HomeBanner from '../../components/HomeBanner/HomeBanner.vue'
+import HomeMenu from '../../components/HomeMenu/HomeMenu.vue'
 
 export default {
     name:'home',
@@ -8,7 +9,8 @@ export default {
       }
     },
     components:{
-      HomeBanner
+      HomeBanner,
+      HomeMenu
 
     }
   }
