@@ -8,6 +8,12 @@ import BaseAvatar from '@/common/BaseAvatar.vue'
 
      }
    },
+   methods: {
+    loginClick() {
+      console.log('我点击了么')
+      this.$router.push('/singin')
+    }
+   },
    components: {
      SVGLogo,
      BaseAvatar,

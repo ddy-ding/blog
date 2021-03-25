@@ -3,7 +3,8 @@
     <HomeBanner/>
     <HomeMenu/>
     <HomeTopic/>
-
+    <HomePost/>
+    <HomeCategory/>
   </div>
 </template>
 <script>

@@ -1,0 +1,52 @@
+.article {
+  box-sizing: border-box;
+  padding: 10px;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 4px;
+    line-height: 20px;
+    cursor: default;
+    .recommend {
+      font-size: 12px;
+    }
+  }
+  .main {
+    height: 430px;
+    .main-list {
+      position: relative;
+      margin: 10px 0;
+      border-radius: 4px;
+      text-align: center;
+      color: #fff;
+      background-image: url('./img/img1.webp');
+      background-position: 50% 50%;
+      background-size: cover;
+      background-repeat: no-repeat;
+      .txt {
+        position: relative;
+        box-sizing: border-box;
+        padding: 0 30px;
+        border-radius: 4px;
+        overflow: hidden;
+        font-size: 17px;
+        line-height: 100px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        background-color: rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+      }
+      .category {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        padding: 0 4px;
+        border-radius: 6px;
+        font-size: 12px;
+        line-height: 22px;
+        background: rgba(7, 17, 27, .4);
+      }
+    }
+  } 
+}

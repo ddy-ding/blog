@@ -1,7 +1,7 @@
 <template>
     <div id="app" class="wrap" :style="{height:wrapHeight + 'px'}">
       <TheHeader class="header"/>
-      <main>
+      <main class="main-content">
         <transition>
           <router-view></router-view>
         </transition>
@@ -49,5 +49,10 @@ export default {
       height: 40px;
     }
   }  
+  .main-content {
+    position: relative;
+    height: calc(100% - 40px);
+    overflow: auto;
+  }
 </style>>
  

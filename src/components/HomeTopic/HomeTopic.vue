@@ -14,19 +14,19 @@
        <li class="main-list">
         <dl>
           <dt>css效果</dt>
-          <dd>使用css实现的各种效果</dd>
+          <dd class="txt">使用css实现的各种效果</dd>
         </dl>
       </li>
        <li class="main-list">
         <dl>
           <dt>css效果</dt>
-          <dd>使用css实现的各种效果</dd>
+          <dd class="txt">使用css实现的各种效果</dd>
         </dl>
       </li>
        <li class="main-list">
         <dl>
           <dt>css效果</dt>
-          <dd>使用css实现的各种效果</dd>
+          <dd class="txt">使用css实现的各种效果</dd>
         </dl>
       </li>
     </ul>

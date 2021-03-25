@@ -7,7 +7,7 @@
     padding: 0 4px;
     line-height: 20px;
     .title-more {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
   .main {
@@ -17,6 +17,23 @@
     .main-list {
       box-sizing: border-box;
       width: calc(50% - 20px);
+      padding: 10px;
+      margin: 10px;
+      border-radius: 6px;
+      line-height: 2;
+      color: #fff;
+      background: #0074d9;
+      box-shadow: 0 4px 16px 0 #0074d9;
+      cursor: pointer;
+    }
+    .txt {
+      font-size: 14px;
+      text-indent: 10px;
+    }
+  }
+  @media all and (min-width: 900px) {
+    .main {
+      min-height: 276px;
     }
   }
 }

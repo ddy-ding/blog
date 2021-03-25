@@ -25,6 +25,18 @@ export function createRouter() {
           name:'home',
           meta: { index: 0 }
       },
+      // 注册
+      {
+        path: '/signup',
+        component: () => import('@/page/User/Signup/Signup.vue'),
+        name:'signup'
+      },
+      // 登录
+      {
+        path: '/singin',
+        component: () => import('@/page/User/Signin/Signin.vue'),
+        name:'signin'
+      }
     ]
   })
 }

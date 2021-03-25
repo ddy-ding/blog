@@ -1,0 +1,19 @@
+.wrap {
+  box-sizing: border-box;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+  .title {
+    display: flex;
+    justify-content: space-between;
+    width: 140px;
+    margin: 20px auto;
+    font-weight: normal;
+    font-size: 20px;
+  }
+}
+.active {
+  padding-bottom: 6px;
+  border-bottom: 1px solid #2196f3 ;
+  color: #2196f3;
+}

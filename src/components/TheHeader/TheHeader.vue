@@ -4,7 +4,7 @@
        <SVGLogo width="32" height="32"/>
        <h1 class="title">小阁老</h1>
      </div>
-     <BaseAvatar>D</BaseAvatar>
+     <BaseAvatar @click.native="loginClick">D</BaseAvatar>
    </header>
 </template>
 <script>
