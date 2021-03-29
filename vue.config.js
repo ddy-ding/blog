@@ -64,7 +64,7 @@ module.exports = {
       disableHostCheck: true,
       proxy: {
         '/api': {
-          target:'',
+          target:'http://127.0.0.1:3000',
           changeOrigin: true, // 起一个虚拟服务器跨域
           secure: false, // 是否验证SSl证书(忽略https安全提示))
           pathRewrite: {
