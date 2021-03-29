@@ -9,30 +9,29 @@
 import axios from 'axios'
 // 创建实例
 const service = axios.create({
-    baseURL: process.env.NODE_ENV === 'production' ? `/java` : '',
+    baseURL: '',
     timeout:30000, // 请求超时
     retry: 3, // 超时重新请求次数
     headers: {
-        get: {
-          'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'
-          // 在开发中，一般还需要单点登录或者其他功能的通用请求头，可以一并配置进来
-        },
-        post: {
-          'Content-Type': 'application/json;charset=utf-8'
-          // 在开发中，一般还需要单点登录或者其他功能的通用请求头，可以一并配置进来
-        }
+        get: { 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8' },
+        post: { 'Content-Type': 'application/json;charset=utf-8' }
     },
     validateStatus: function () {
 		// 使用async-await，处理reject情况较为繁琐，所以全部返回resolve，在业务代码中处理异常
 		return true
     },
-    // 请求响应处理
-    // 在向服务器发送请求前，序列化请求数据
+    /**
+     * @description 请求处理响应  在向服务器发送请求前，序列化请求数据
+     * @param {data} data
+     */
     transformRequest:[function(data) {
         data = JSON.stringify(data)
         return data
-    }],
-    // 在传递给then/catch前修改数据
+    }], 
+    /**
+     * @description 在传递给then/catch前修改数据
+     * @param { data } data
+     */
     transformResponse:[function(data) {
         if(typeof data === 'string' && data.startsWith('{')) {
             data = JSON.parse(data)
@@ -40,7 +39,9 @@ const service = axios.create({
         return data
     }]
 })
-// 请求拦截器
+/**
+ * @description 请求拦截器
+ */
 service.interceptors.request.use(config => {
     const token = ''
     if(token) {
@@ -53,7 +54,6 @@ service.interceptors.request.use(config => {
     error.data.msg = '服务器异常,请联系管理员'
     return Promise.resolve(error)
 })
-// 响应拦截器
 // 不同的状态提示不同的信息
 const statusData = new Map([
     [400,['请求错误(400)']],
@@ -75,6 +75,9 @@ const showStatue = (status) => {
     message = statusList[0]
     return `${message}，请检查网络或联系管理员！`
 }
+/**
+ * @description 响应拦截器
+ */
 service.interceptors.response.use((response) => {
     const status = response.status
     let msg = ''
@@ -89,10 +92,12 @@ service.interceptors.response.use((response) => {
     }
     return response
 }, (error) =>{
+   console.log('err',error)
     // 错误处理
     error.data = {}
     error.data.msg = '请求超时或服务器异常，请检查网络或联系管理员！'
     return Promise.resolve(error)
+    // 这边需要加登录超时操作
 })
 
 export default service

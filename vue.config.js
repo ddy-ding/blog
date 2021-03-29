@@ -58,6 +58,19 @@ module.exports = {
               }
           return options;
       });
-      
+    },
+    devServer: {
+      port:8088,
+      disableHostCheck: true,
+      proxy: {
+        '/api': {
+          target:'',
+          changeOrigin: true, // 起一个虚拟服务器跨域
+          secure: false, // 是否验证SSl证书(忽略https安全提示))
+          pathRewrite: {
+              '^/api': '',
+          },
+        }
+      }
     }
 }

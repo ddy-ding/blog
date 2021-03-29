@@ -12,51 +12,32 @@ const METHOD = {
     GET:'get',
     POST:'post'
 }
-/*
-* 网络请求
-* @params method 方法
-* @params url 接口地址
-* @params params 参数
-* @params showError 是否展示错误信息
-* @return (Promise<any>)
-*/
-// 错误和失败信息都在这里进行处理，界面中调用的时候只处理正确数据即可
-function request (method, url, params,showError) {
-    // 展示错误判断
-    if(showError || showError == undefined) {
-        showError = true
-    }else {
-        showError = false
-    }
-    return new Promise((resolve,reject) => {
-        service({
-            method: method,
-            url: url,
-            params:params
-        }).then((res) => {
-            if(res.data.code === 0){
-                resolve(res.data.data)
-            } else {
-                // 错误信息的处理
-                reject(res.data);
-                if(showError){
-                    console.log('我还没有写message弹窗')
-                }
-            }
-        }).catch(() => {
-            if(showError) {
-                console.log('我还没写message的弹窗')
-            }
-        })
+/**
+ * @description 错误和失败信息都在这里进行处理，界面中调用的时候只处理正确数据即可
+ * @param {*} method 方法
+ * @param { string } url 接口地址
+ * @param {*} params 参数
+ * @param {boolean} showError 是否展示错误（展示没有具体做）
+ * @returns (Promise<any>)
+ */
+function request (method, url, params) {
+    return service({
+      method: method,
+      url: url,
+      params:params
+    }).then(res => {
+      res.data
+    }).catch (err => {
+      console.log('err',err)
     })
 }
-/*
-* 图片上传
-* @params url 地址
-* @param params 参数 FormData
-* @param showError 是否展示错误
-* @returns {Promise<any>}
-*/ 
+/**
+ * 
+ * @param {*} url 地址
+ * @param {*} params 参数 FormData
+ * @param {*} showError 是否展示错误
+ * @returns {Promise<any>}
+ */
 function uploadReq(url,params,showError) {
     if(showError || showError === undefined) {
         showError === true
@@ -80,14 +61,14 @@ function uploadReq(url,params,showError) {
         }
     })
 }
-function get (url,params,showError) {
-    return request(METHOD.GET,url,params,showError);
+function get (url,params) {
+    return request(METHOD.GET,url,params);
 }
-function post (url,params,showError) {
-    return request(METHOD.POST,url,params,showError)
+function post (url,params) {
+    return request(METHOD.POST,url,params)
 }
-function upload(url,params,showError) {
-    return uploadReq(url,params,showError)
+function upload(url,params) {
+    return uploadReq(url,params)
 }
 export  {
     get,

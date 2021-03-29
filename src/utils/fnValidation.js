@@ -1,0 +1,1 @@
+export const isEmpty = val => String(val).match(/^$/)

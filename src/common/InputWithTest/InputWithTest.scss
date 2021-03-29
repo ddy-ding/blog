@@ -1,0 +1,13 @@
+.wrap {
+  position: relative;
+  margin: 12px 0;
+  line-height: 40px;
+}
+.errShow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 10px;
+  font-size: 1em;
+  color: red;
+}
