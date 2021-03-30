@@ -50,3 +50,11 @@ const service = axios.create({
 eg：const proxyApiPath = process.env.VUE_APP_PROXYAPIPATH || 'http:xxxx';
 或
 publicPath: process.env.NODE_ENV === 'development' ? '/' : './',等等...
+### 小细节
+app.use(express.static(__dirname + '/public'));
+将静态文件目录设置为:项目根目录+/public
+
+### 区分
+JSON.stringify() 方法用于将 JavaScript 值转换为 JSON 字符串。
+JSON.parse()是Javascript中一个常用的 JSON 转换方法，JSON.parse()可以把JSON规则的字符串转换为JSONObject，JSON.parse()很方便，并且几乎支持所有浏览器。
+ 
