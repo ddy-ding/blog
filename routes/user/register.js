@@ -1,29 +1,30 @@
-// 导入数据库相关配置
-let mysql = require('../db');
-let express = require('express');
-let router = express.Router();
-
-//  获取客户端数据
-router.post('/', (req , res) => {
-  console.log('req', req)
-  console.log('res', res)
-  let { name, psw , id } = res.body
-   console.log('registername',name)
-   console.log('registerpsw',psw)
-   console.log('registerid',id)
-   mysql.query(`SELECT * FROM user_info WHERE username= '${name}'`, (err , data) => {
-     if(data[0]) {
-       console.log(data,data)
-       res.send({ statusCode:0, msg:'用户名已经存在'})
-     } else {
-      console.log('err', err)
-      console.log('err', data)
-      if(err) {
-        res.send({ statusCode:0, msg:'注册失败'})
-        return
+const express = require('express');
+const router = express.Router();
+const sqlObj = require('../../db/sql');
+// const moment = require('moment');
+const connection = require('../../db/db')
+ 
+router.post('/register',(req,res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+  if(!username || !password) {
+    return res.json({
+      code: 1,
+      message: '账号密码不能为空'
+    })
+  } else {
+    console.log('如果有用户表需要判断用户表是否存在')
+    const params = [username,password]
+    connection.query(sqlObj.sqls.register,params,(error) => {
+      if(error) {
+        throw error
       } else {
-        res.send({ statusCode:200, msg:'注册成功'})
+        return res.json({
+          code: 200,
+          message: '注册成功'
+        })
       }
-     }
-   })
-})
+    })
+  }
+});
+module.exports = router

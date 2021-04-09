@@ -17,6 +17,8 @@
     "core-js": "^3.6.5",
     "cross-env": "^7.0.3",
     "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
     "mysql": "^2.18.1",
     "path": "^0.12.7",
     "precss": "^4.0.0",
