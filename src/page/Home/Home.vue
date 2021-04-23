@@ -1,7 +1,7 @@
 <template>
   <div>
     <HomeBanner/>
-    <HomeMenu/>
+    <HomeMenu />
     <HomeTopic/>
     <HomePost/>
     <HomeCategory/>

@@ -1,27 +1,60 @@
-# fionading
+### 项目介绍
+&emsp;&emsp; 该项目是基于vue全家桶（vue vue-router vuex vue ssr）开发的一套博客前台页面  主要功能包括首页显示  文章管理  评论点赞管理等
+### 访问地址
+&emsp;&emsp; 域名：本地域名
+&emsp;&emsp; Github: [https://github.com/ddy-ding/blog]
+### 主要内容
+&emsp;&emsp; 改项目主要是收集在自学过程收集的相关知识点，加深自己的记忆，也有益于他人
+&emsp;&emsp; 采用移动端响应式布局，移动端、桌面均可适配，采用的是rem单位
+&emsp;&emsp; 采用服务器端渲染SSR的方式，有利于SEO减少首屏渲染的时间；使用service worker和manifest实现了PWA方案的离线缓存和添加到桌面的功能
+&emsp;&emsp; 根据html标签内容模型，使用语义化标签，减少标签层级，减少无语义的div标签
+&emsp;&emsp; css使用scss 使用eslint规划js代码 所有采用驼峰命名方式 文章类的公共组件采用的是Base开头，事件函数以on为前缀，异步函数以async为后缀，布尔值基本以do或is为前缀
+&emsp;&emsp;没有应用第三方库，自己封装了头像，全屏，loading，遮罩，搜索框，联动选择等组件
+&emsp;&emsp;使用配置数据，实现了数据和应用分离，以常量的形式存储在service目录下
+&emsp;&emsp;
+&emsp;&emsp;
+&emsp;&emsp;
+&emsp;&emsp;
+&emsp;&emsp;
+&emsp;&emsp;
+&emsp;&emsp;
 
-## Project setup
-```
-npm install
-```
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 下面是小问题总结（不要见怪） -->
 ### vue.config.js
  // 1.vue.config.js基本配置
  // 2.插件及规则的配置 configureWebpack 方式 chainWebpack 方式

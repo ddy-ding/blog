@@ -1,0 +1,32 @@
+.wrap {
+  box-sizing: border-box;
+  padding: 10px;
+  background: #eee;
+  .topBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .content-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  .controlBBox {
+    display: flex;
+    text-align: center;
+    .control {
+      padding: 0 10px;
+      cursor: pointer;
+      img {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}

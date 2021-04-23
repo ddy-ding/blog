@@ -1,8 +1,8 @@
 <template>
   <ul class="menu">
-    <li class="menuList" v-for="(item,index) in menuData" :key="index">
-      <div class="name">{{ item.name}}</div>
-      <div class="category">{{ item.category}}</div>
+    <li class="menuList" v-for="(item,index) in menuData" :key="index"  @click="goCategory(item.category_id)">
+      <div class="name">{{item.category_des }}</div>
+      <div class="category">{{ item.category_name }}</div>
     </li>
   </ul>
 </template>

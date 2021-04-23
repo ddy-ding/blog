@@ -6,7 +6,6 @@
  * @LastEditors: Fiona
  * @LastEditTime: 2020-12-16 16:17:33
  */
-import {get, post} from '@/utils/http'
-
-export const text = (params) => get('...',params)
-export const rr = (params) => post('/api/auth/login',params)
+import {get} from '@/utils/http'
+export const getFirstCategory = () => get('/api/firstcategory')
+export const getSecondTitle = (param) => get('/api/secondTitle', param)

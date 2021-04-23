@@ -36,6 +36,18 @@ export function createRouter() {
         path: '/singin',
         component: () => import('@/page/User/Signin/Signin.vue'),
         name:'signin'
+      },
+      // 分类
+      {
+        path: '/category/:num',
+        component: () => import('@/page/Category/Category/Category.vue'),
+        name:'category'
+      },
+      // 详情页面
+      {
+        path: '/post/:id',
+        component: () => import('@/page/Post/Post/Post.vue'),
+        name:'post'
       }
     ]
   })

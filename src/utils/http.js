@@ -26,9 +26,9 @@ function request (method, url, params) {
       url: url,
       params:params
     }).then(res => {
-      res.data
+      return Promise.resolve(res.data)
     }).catch (err => {
-      console.log('err',err)
+      return Promise.reject(err)
     })
 }
 /**
